@@ -1,0 +1,18 @@
++--------+----------+-------------------------------+--------------------------+---------------------------------------------------------------+------------+
+| Domain | Method   | URI                           | Name                     | Action                                                        | Middleware |
++--------+----------+-------------------------------+--------------------------+---------------------------------------------------------------+------------+
+|        | GET|HEAD | /                             |                          | CodeCommerce\Http\Controllers\WelcomeController@index         | guest      |
+|        | GET|HEAD | admin/categories              | admin.categories.index   | CodeCommerce\Http\Controllers\CategoriesController@index      |            |
+|        | GET|HEAD | admin/categories/create       | admin.categories.create  | CodeCommerce\Http\Controllers\CategoriesController@create     |            |
+|        | GET|HEAD | admin/categories/destroy/{id} | admin.categories.destroy | CodeCommerce\Http\Controllers\AdminCategoriesController@index | guest      |
+|        | GET|HEAD | admin/categories/edit/{id}    | admin.categories.edit    | CodeCommerce\Http\Controllers\AdminCategoriesController@index | guest      |
+|        | POST     | admin/categories/store        | admin.categories.store   | CodeCommerce\Http\Controllers\CategoriesController@store      |            |
+|        | PUT      | admin/categories/update/{id}  | admin.categories.update  | CodeCommerce\Http\Controllers\AdminCategoriesController@index | guest      |
+|        | GET|HEAD | admin/products                | admin.products.index     | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | GET|HEAD | admin/products/create         | admin.products.create    | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | GET|HEAD | admin/products/destroy/{id}   | admin.products.destroy   | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | GET|HEAD | admin/products/edit/{id}      | admin.products.edit      | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | POST     | admin/products/store          | admin.products.store     | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | PUT      | admin/products/update/{id}    | admin.products.update    | CodeCommerce\Http\Controllers\AdminProductsController@index   | guest      |
+|        | GET|HEAD | example                       |                          | CodeCommerce\Http\Controllers\WelcomeController@example       | guest      |
++--------+----------+-------------------------------+--------------------------+---------------------------------------------------------------+------------+
