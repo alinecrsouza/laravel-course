@@ -53,7 +53,7 @@ class CategoriesController extends Controller
         
         $category->save();
         
-        return redirect('admin.categories');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -98,6 +98,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->categoryModel->find($id)->delete();
+        
+        return redirect()->route('admin.categories.index');
     }
 }

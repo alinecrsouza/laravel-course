@@ -94,7 +94,7 @@ Route::group(['prefix' => 'admin'], function(){
         Route::post('store', ['as' => 'admin.categories.store', 'uses' => 'CategoriesController@store']);
         Route::get('edit/{id}', ['as' => 'admin.categories.edit', 'uses' => 'AdminCategoriesController@index']);
         Route::put('update/{id}', ['as' => 'admin.categories.update', 'uses' => 'AdminCategoriesController@index']);
-        Route::get('destroy/{id}', ['as' => 'admin.categories.destroy', 'uses' => 'AdminCategoriesController@index']);
+        Route::get('destroy/{id}', ['as' => 'admin.categories.destroy', 'uses' => 'CategoriesController@destroy']);
     });    
 });
 //Route::get('/admin/categories','AdminCategoriesController@index');
