@@ -4,6 +4,14 @@
 <div class="container">
     <h1>Create Category</h1>
     
+    @if($errors->any())
+        <ul class="alert">
+            @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+    
     {!! Form::open(['route'=>'admin.categories.store']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}

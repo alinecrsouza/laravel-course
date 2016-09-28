@@ -45,7 +45,7 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\CategoryRequest $request)
     {
         $input = $request->all();
         
