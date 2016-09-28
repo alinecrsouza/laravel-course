@@ -16,16 +16,16 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Nilton, acho que consegui. Eu fiz tudo de novo, reiniciei o servidor e a rota passou a funcionar.
+    private $categoryModel;
     
-    private $categories;
-    
-    public function __construct(Category $category) {        
-        $this->categories = $category;
+    public function __construct(Category $categoryModel) {        
+        $this->categoryModel = $categoryModel;
     }
     
     public function index()
     {
-        $categories = $this->categories->all();
+        $categories = $this->categoryModel->all();
         return view('admin.categories.index', compact('categories'));
     }
 

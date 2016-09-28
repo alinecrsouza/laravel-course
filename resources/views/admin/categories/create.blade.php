@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Create Category</h1>
     
-    {!! Form::open(['route'=>'admin/categories/store', 'method'=>'post']) !!}
+    {!! Form::open(['route'=>'admin.categories.store']) !!}
         <div class="form-group">
             {!! Form::label('name', 'Name:') !!}
             {!! Form::text('name', null, ['class' => 'form-control']) !!}
