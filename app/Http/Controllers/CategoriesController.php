@@ -16,7 +16,7 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    //Nilton, acho que consegui. Eu fiz tudo de novo, reiniciei o servidor e a rota passou a funcionar.
+    
     private $categoryModel;
     
     public function __construct(Category $categoryModel) {        
