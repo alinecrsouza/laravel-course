@@ -81,19 +81,19 @@ Route::get('/example','WelcomeController@example');
 
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['prefix' => 'products'], function() {
-        Route::get('', ['as' => 'admin.products.index', 'uses' => 'AdminProductsController@index']);
-        Route::get('create', ['as' => 'admin.products.create', 'uses' => 'AdminProductsController@index']);
-        Route::post('store', ['as' => 'admin.products.store', 'uses' => 'AdminProductsController@index']);
-        Route::get('edit/{id}', ['as' => 'admin.products.edit', 'uses' => 'AdminProductsController@index']);
-        Route::put('update/{id}', ['as' => 'admin.products.update', 'uses' => 'AdminProductsController@index']);
-        Route::get('destroy/{id}', ['as' => 'admin.products.destroy', 'uses' => 'AdminProductsController@index']);
+        Route::get('', ['as' => 'admin.products.index', 'uses' => 'ProductsController@index']);
+        Route::get('create', ['as' => 'admin.products.create', 'uses' => 'ProductsController@create']);
+        Route::post('store', ['as' => 'admin.products.store', 'uses' => 'ProductsController@store']);
+        Route::get('edit/{id}', ['as' => 'admin.products.edit', 'uses' => 'ProductsController@edit']);
+        Route::put('update/{id}', ['as' => 'admin.products.update', 'uses' => 'ProductsController@update']);
+        Route::get('destroy/{id}', ['as' => 'admin.products.destroy', 'uses' => 'ProductsController@destroy']);
     });
     Route::group(['prefix' => 'categories'], function() {
         Route::get('', ['as' => 'admin.categories.index', 'uses' => 'CategoriesController@index']);   
         Route::get('create', ['as' => 'admin.categories.create', 'uses' => 'CategoriesController@create']);
         Route::post('store', ['as' => 'admin.categories.store', 'uses' => 'CategoriesController@store']);
-        Route::get('edit/{id}', ['as' => 'admin.categories.edit', 'uses' => 'AdminCategoriesController@index']);
-        Route::put('update/{id}', ['as' => 'admin.categories.update', 'uses' => 'AdminCategoriesController@index']);
+        Route::get('edit/{id}', ['as' => 'admin.categories.edit', 'uses' => 'CategoriesController@edit']);
+        Route::put('update/{id}', ['as' => 'admin.categories.update', 'uses' => 'CategoriesController@update']);
         Route::get('destroy/{id}', ['as' => 'admin.categories.destroy', 'uses' => 'CategoriesController@destroy']);
     });    
 });

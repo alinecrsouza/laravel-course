@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
-use CodeCommerce\Category;
+use CodeCommerce\Product;
 
-class CategoriesController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +17,16 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-    private $categoryModel;
+    private $productModel;
     
-    public function __construct(Category $categoryModel) {        
-        $this->categoryModel = $categoryModel;
+    public function __construct(Product $productModel) {        
+        $this->productModel = $productModel;
     }
     
     public function index()
     {
-        $categories = $this->categoryModel->all();
-        return view('admin.categories.index', compact('categories'));
+        $products = $this->productModel->all();
+        return view('admin.products.index', compact('products'));
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.products.create');
     }
 
     /**
@@ -45,15 +45,15 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\CategoryRequest $request)
+    public function store(Requests\ProductRequest $request)
     {
         $input = $request->all();
         
-        $category = $this->categoryModel->fill($input);
+        $product = $this->productModel->fill($input);
         
-        $category->save();
+        $product->save();
         
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -75,9 +75,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = $this->categoryModel->find($id);
+        $product = $this->productModel->find($id);
         
-        return view('admin.categories.edit', compact('category')); 
+        return view('admin.products.edit', compact('product')); 
     }
 
     /**
@@ -87,11 +87,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\CategoryRequest $request, $id)
+    public function update(Requests\ProductRequest $request, $id)
     {
-        $this->categoryModel->find($id)->update($request->all());
+        $this->productModel->find($id)->update($request->all());
         
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.products.index');
     }
 
     /**
@@ -102,8 +102,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->categoryModel->find($id)->delete();
+        $this->productModel->find($id)->delete();
         
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.products.index');
     }
 }
