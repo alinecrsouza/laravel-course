@@ -92,6 +92,7 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('product/{id}', ['as' => 'admin.products.images', 'uses' => 'ProductsController@images']);
             Route::get('create/product/{id}', ['as' => 'admin.products.images.create', 'uses' => 'ProductsController@createImage']);
             Route::post('store/product/{id}', ['as' => 'admin.products.images.store', 'uses' => 'ProductsController@storeImage']);
+            Route::get('destroy/product/{id}', ['as' => 'admin.products.images.destroy', 'uses' => 'ProductsController@destroyImage']);
         });
     });
     Route::group(['prefix' => 'categories'], function() {

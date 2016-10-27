@@ -18,8 +18,9 @@
             {!! Form::file('image', null, ['class' => 'form-control']) !!}
         </div>       
         <div class="form-group">
-            {!! Form::submit('Upload Image', ['class' => 'btn btn-primary form-control']) !!}
-        </div>
+            {!! Form::submit('Upload Image', ['class' => 'btn btn-primary']) !!}
+            <a href="{{ route('admin.products.images', ['id' => $product->id]) }}" class="btn btn-default">Cancel</a>
+        </div>        
     {!! Form::close() !!}
     
 </div>

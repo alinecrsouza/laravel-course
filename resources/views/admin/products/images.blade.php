@@ -4,7 +4,7 @@
 <div class="container">
     <h1>Images of {{ $product->name }}</h1>
        
-    <a href="{{ route('admin.products.images.create')}}" class="btn btn-default">New Image</a>
+    <a href="{{ route('admin.products.images.create', ['id' => $product->id])}}" class="btn btn-default">New Image</a>
     <br><br>
     <table class="table">
         <tr>
@@ -16,15 +16,18 @@
         @foreach($product->images as $image)
         <tr>
             <td>{{ $image->id }}</td>
-            <td></td>
-            <td>{{ $image->extension }}</td>            
             <td>
-                <!--<a href="{{ route('admin.products.edit', ['id' => $image->product->id])}}">Edit</a> |
-                <a href="{{ route('admin.products.destroy', ['id' => $image->product->id])}}">Delete</a>-->
+                <img src="{{ url('uploads/'.$image->id.'.'.$image->extension) }}" width="80">
+            </td>
+            <td>{{ $image->extension }}</td>            
+            <td>                
+                <a href="{{ route('admin.products.images.destroy', ['id' => $image->id])}}">Delete</a>
             </td>
         </tr>
         @endforeach
-    </table>  
+    </table>
+    
+    <a href="{{ route('admin.products.index') }}" class="btn btn-default">Go back</a>
     
 </div>
 @endsection
