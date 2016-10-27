@@ -3,12 +3,15 @@
 namespace CodeCommerce\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
 use CodeCommerce\Product;
 use CodeCommerce\Category;
+use CodeCommerce\ProductImage;
 
 class ProductsController extends Controller
 {
@@ -108,5 +111,31 @@ class ProductsController extends Controller
         $this->productModel->find($id)->delete();
         
         return redirect()->route('admin.products.index');
+    }
+    
+    public function images($id) {
+        
+        $product = $this->productModel->find($id);
+        
+         return view('admin.products.images', compact('product'));
+    }
+    
+    public function createImage($id) {
+        
+        $product = $this->productModel->find($id);
+        
+         return view('admin.products.create_image', compact('product'));
+    }
+    
+    public function storeImage(Request $request, $id, ProductImage $productImage) {
+        
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        
+        $image = $productImage::create(['product_id'=>$id, 'extension'=>$extension]);
+        
+        Storage::disk('public_local')->put($image->id.'.'.$extension, File::get($file));
+        
+        return redirect()->route('admin.products.images', ['id'=>$id]);
     }
 }
