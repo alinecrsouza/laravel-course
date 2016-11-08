@@ -12,6 +12,7 @@ use CodeCommerce\Http\Controllers\Controller;
 use CodeCommerce\Product;
 use CodeCommerce\Category;
 use CodeCommerce\ProductImage;
+use CodeCommerce\Tag;
 
 class ProductsController extends Controller
 {
@@ -55,8 +56,10 @@ class ProductsController extends Controller
         $input = $request->all();
         
         $product = $this->productModel->fill($input);
-        
+                
         $product->save();
+        
+        $product->tags()->sync($this->getTagsIds($request->tags));
         
         return redirect()->route('admin.products.index');
     }
@@ -96,6 +99,8 @@ class ProductsController extends Controller
     public function update(Requests\ProductRequest $request, $id)
     {
         $this->productModel->find($id)->update($request->all());
+        $product = $this->productModel->find($id);
+        $product->tags()->sync($this->getTagsIds($request->tags));
         
         return redirect()->route('admin.products.index');
     }
@@ -149,5 +154,17 @@ class ProductsController extends Controller
         $image->delete();
         
         return redirect()->route('admin.products.images', ['id'=>$product->id]);
+    }
+    
+    private function getTagsIds($tags) {
+        //array_map removes spaces and array_filter removes empty strings
+        $tagList = array_filter(array_map('trim', explode(',', $tags)));
+        //dd($tags);
+        $tagsIDs=[];
+        foreach($tagList as $tagName){
+            $tagsIDs[] = Tag::firstOrCreate(['name'=> $tagName])->id;
+        }
+        //dd($tagsIDs);
+        return $tagsIDs;
     }
 }

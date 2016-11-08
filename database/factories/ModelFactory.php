@@ -29,7 +29,8 @@ $factory->define(CodeCommerce\Category::class, function (Faker\Generator $faker)
 
 $factory->define(CodeCommerce\Product::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->word(),
+        //'name' => $faker->word(),
+        'name' => $faker->words($nb = 2, $asText = true),
         'description' => $faker->sentence(),
         'price' => $faker->randomFloat(2, 10, 5000),
         'featured' => $faker->boolean(),
