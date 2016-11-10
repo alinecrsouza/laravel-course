@@ -21,9 +21,10 @@ class StoreController extends Controller
         //No business rules at controller
         //$pFeatured = Product::where('featured', '=', 1)->get();
         $pFeatured = Product::featured()->get();
+        $pRecommended = Product::recommended()->get();
         //dd($pFeatured);
         $categories = Category::all();
-        return view('store.index', compact('categories', 'pFeatured'));
+        return view('store.index', compact('categories', 'pFeatured', 'pRecommended'));
     }
 
     /**
