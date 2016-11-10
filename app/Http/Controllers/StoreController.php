@@ -26,6 +26,14 @@ class StoreController extends Controller
         $categories = Category::all();
         return view('store.index', compact('categories', 'pFeatured', 'pRecommended'));
     }
+    
+    public function productsByCategory($id)
+    {
+        $pFeatured = Product::featured()->byCategory($id)->get();
+        $pRecommended = Product::recommended()->byCategory($id)->get();
+        $categories = Category::all();
+        return view('store.index', compact('categories', 'pFeatured', 'pRecommended')); 
+    }
 
     /**
      * Show the form for creating a new resource.

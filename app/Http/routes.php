@@ -75,6 +75,7 @@ Route::pattern('id', '[0-9]+');
 
 
 Route::get('/','StoreController@index');
+Route::get('/category/{id}', ['as' => 'store.products.by_category', 'uses' => 'StoreController@productsByCategory']);
 Route::get('/example','WelcomeController@example');
 
 //Route::get('/categories','CategoriesController@index');
