@@ -74,7 +74,7 @@ Route::pattern('id', '[0-9]+');
 //});
 
 
-Route::get('/','WelcomeController@index');
+Route::get('/','StoreController@index');
 Route::get('/example','WelcomeController@example');
 
 //Route::get('/categories','CategoriesController@index');
