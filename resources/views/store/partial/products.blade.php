@@ -10,7 +10,7 @@
                     @endif
                     <h2>$ {{ $product->price }}</h2>
                     <p>{{ $product->name }}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>More details</a>
+                    <a href="{{ route('store.product', ['id' => $product->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>More details</a>
 
                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
@@ -18,7 +18,7 @@
                     <div class="overlay-content">
                         <h2>$ {{ $product->price }}</h2>
                         <p>{{ $product->name }}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>More details</a>
+                        <a href="{{ route('store.product', ['id' => $product->id])}}" class="btn btn-default add-to-cart"><i class="fa fa-crosshairs"></i>More details</a>
                         <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                     </div>
                 </div>
