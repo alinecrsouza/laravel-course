@@ -27,12 +27,21 @@ class StoreController extends Controller
         return view('store.index', compact('categories', 'pFeatured', 'pRecommended'));
     }
     
-    public function productsByCategory($id)
+    //old function using local scope and showing featured/recommended products
+//    public function productsByCategory($id)
+//    {
+//        $pFeatured = Product::featured()->byCategory($id)->get();
+//        $pRecommended = Product::recommended()->byCategory($id)->get();
+//        $categories = Category::all();
+//        return view('store.index', compact('categories', 'pFeatured', 'pRecommended')); 
+//    }
+    
+    public function category($id)
     {
-        $pFeatured = Product::featured()->byCategory($id)->get();
-        $pRecommended = Product::recommended()->byCategory($id)->get();
+        $products = Product::ofCategory($id)->get();
         $categories = Category::all();
-        return view('store.index', compact('categories', 'pFeatured', 'pRecommended')); 
+        $category = Category::find($id);
+        return view('store.category', compact('categories', 'products', 'category')); 
     }
 
     /**

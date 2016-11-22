@@ -40,7 +40,13 @@ class Product extends Model
         return $query->where('recommend', '=', 1);
     }
     
-    public function scopeByCategory($query, $id) {
-        return $query->where('category_id', '=', $id);
+    //local scope, use global scope instead
+//    public function scopeByCategory($query, $id) {
+//        return $query->where('category_id', '=', $id);
+//    }
+    
+    //global scope
+    public function scopeOfCategory($query, $type) {
+        return $query->where('category_id', '=', $type);
     }
 }
