@@ -43,7 +43,13 @@
                         Add to cart
                     </a>
                 </span>
+                <p>
+                    @foreach($product->tags as $tag)
+                    <a href="{{ route('store.tag', ['id'=>$tag->id]) }}" class="label label-primary">{{ $tag->name }}</a>
+                    @endforeach
+                </p>
             </div>
+
             <!--/product-information-->
         </div>
     </div>

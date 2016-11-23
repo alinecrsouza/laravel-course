@@ -7,6 +7,7 @@ Route::pattern('id', '[0-9]+');
 Route::get('/','StoreController@index');
 Route::get('/category/{id}', ['as' => 'store.category', 'uses' => 'StoreController@category']);
 Route::get('/product/{id}', ['as' => 'store.product', 'uses' => 'StoreController@product']);
+Route::get('/tag/{id}', ['as' => 'store.tag', 'uses' => 'StoreController@tag']);
 
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['prefix' => 'products'], function() {
