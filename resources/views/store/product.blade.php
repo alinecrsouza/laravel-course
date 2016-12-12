@@ -38,7 +38,7 @@
                 <p>{{ $product->description }}</p>
                 <span>
                     <span>$ {{ $product->price }}</span>
-                    <a href="#" class="btn btn-default cart">
+                    <a href="{{ route('store.cart.add', ['id' => $product->id]) }}" class="btn btn-default cart">
                         <i class="fa fa-shopping-cart"></i>
                         Add to cart
                     </a>

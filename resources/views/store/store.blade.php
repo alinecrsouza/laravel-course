@@ -139,7 +139,12 @@
 
         </footer><!--/Footer-->
 
-        <script src="{{ elixir('js/all.js') }}"></script>       
+        <script src="{{ elixir('js/all.js') }}"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
 
     </body>
 </html> 

@@ -8,6 +8,12 @@ Route::get('/','StoreController@index');
 Route::get('/category/{id}', ['as' => 'store.category', 'uses' => 'StoreController@category']);
 Route::get('/product/{id}', ['as' => 'store.product', 'uses' => 'StoreController@product']);
 Route::get('/tag/{id}', ['as' => 'store.tag', 'uses' => 'StoreController@tag']);
+Route::get('/cart', ['as' => 'store.cart', 'uses' => 'CartController@index']);
+Route::get('/cart/add/{id}', ['as' => 'store.cart.add', 'uses' => 'CartController@add']);
+Route::get('/cart/destroy/{id}', ['as' => 'store.cart.destroy', 'uses' => 'CartController@destroy']);
+Route::get('/cart/item/qty/increase/{id}', ['as' => 'store.cart.item.qty.increase', 'uses' => 'CartController@increaseQtyItem']);
+Route::get('/cart/item/qty/decrease/{id}', ['as' => 'store.cart.item.qty.decrease', 'uses' => 'CartController@decreaseQtyItem']);
+Route::get('/cart/item/qty/update/{id}/{qty}', ['as' => 'store.cart.item.qty.update', 'uses' => 'CartController@updateQtyItem']);
 
 Route::group(['prefix' => 'admin'], function(){
     Route::group(['prefix' => 'products'], function() {
