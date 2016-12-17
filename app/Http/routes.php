@@ -5,6 +5,7 @@
 Route::pattern('id', '[0-9]+');
 
 Route::get('/','StoreController@index');
+Route::get('/home','StoreController@index');
 Route::get('/category/{id}', ['as' => 'store.category', 'uses' => 'StoreController@category']);
 Route::get('/product/{id}', ['as' => 'store.product', 'uses' => 'StoreController@product']);
 Route::get('/tag/{id}', ['as' => 'store.tag', 'uses' => 'StoreController@tag']);
@@ -15,7 +16,7 @@ Route::get('/cart/item/qty/update/{id}/{qty}', ['as' => 'store.cart.item.qty.upd
 Route::get('/checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){
     Route::group(['prefix' => 'products'], function() {
         Route::get('', ['as' => 'admin.products.index', 'uses' => 'ProductsController@index']);
         Route::get('create', ['as' => 'admin.products.create', 'uses' => 'ProductsController@create']);
