@@ -24,7 +24,7 @@ class ProductsController extends Controller
     
     private $productModel;
     
-    public function __construct(Product $productModel) {        
+    public function __construct(Product $productModel) {
         $this->productModel = $productModel;
     }
     

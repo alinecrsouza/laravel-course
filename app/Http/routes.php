@@ -15,7 +15,7 @@ Route::get('/cart/item/qty/update/{id}/{qty}', ['as' => 'store.cart.item.qty.upd
 Route::get('/checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::group(['prefix' => 'products'], function() {
         Route::get('', ['as' => 'admin.products.index', 'uses' => 'ProductsController@index']);
         Route::get('create', ['as' => 'admin.products.create', 'uses' => 'ProductsController@create']);
@@ -40,3 +40,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('destroy/{id}', ['as' => 'admin.categories.destroy', 'uses' => 'CategoriesController@destroy']);
     });    
 });
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
