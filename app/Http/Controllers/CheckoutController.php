@@ -33,11 +33,12 @@ class CheckoutController extends Controller
                 $order->items()->create(['product_id' => $k, 'price' => $item['price'], 'qtd' => $item['qtd']]);
             }
 
-            return view('store.order', compact('order'));
+            $cart->clear();
+
+            return view('store.checkout', compact('order', 'cart'));
         }
 
-        return view('store.empty');
-
+        return view('store.checkout', ['cart'=>'empty']);
 
     }
 }

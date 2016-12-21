@@ -2,27 +2,32 @@
 
 @section('content')
     <section id="cart_items">
-        <div class="container">
-            <h2>Order Nº.: {{ $order->id }}</h2>
-            <div class="table-responsive cart_info">
-                <table class="table table-condensed">
-                    <thead>
-                        <tr class="cart_menu">
-                            <td class="image">Item</td>
-                            <td class="price">Price</td>
-                            <td class="price">Quantity</td>
-                            <td class="price">Subtotal</td>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+        <div class="container">
+
+            <h3>My orders</h3>
+            <br>
+            <div class="table-responsive cart_info">
+                @foreach ($orders as $order)
+                    <h4>Order # {{ $order->id }} </h4>
+                    <h5>Status: {{ $order->status }}</h5>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr class="cart_menu">
+                                <td class="image">Item</td>
+                                <td class="price">Price</td>
+                                <td class="price">Quantity</td>
+                                <td class="price">Subtotal</td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
                     @foreach($order->items as $item)
                         <tr>
                             <td class="cart_product">
                                 <a href="{{ route('store.product', ['id' => $item->product_id]) }}">
-                                    Imagem
+                                    {{ $item->product->name }}
                                 </a>
-                                <p>Code: {{ $item->product_id }}</p>
                             </td>
                             <td class="cart_price">
                                 U$ {{$item->price}}
@@ -46,7 +51,9 @@
                         </td>
                     </tr>
                     </tbody>
-                </table>
+                    </table>
+                    <br>
+                @endforeach
             </div>
         </div>
     </section>

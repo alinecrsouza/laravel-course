@@ -14,6 +14,7 @@ Route::get('/cart/add/{id}', ['as' => 'store.cart.add', 'uses' => 'CartControlle
 Route::get('/cart/destroy/{id}', ['as' => 'store.cart.destroy', 'uses' => 'CartController@destroy']);
 Route::get('/cart/item/qty/update/{id}/{qty}', ['as' => 'store.cart.item.qty.update', 'uses' => 'CartController@updateQtyItem']);
 Route::get('/checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+Route::get('/account/orders', ['as' => 'account.orders', 'uses' => 'AccountController@orders']);
 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(){

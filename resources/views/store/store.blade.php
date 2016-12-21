@@ -51,9 +51,9 @@
                         <div class="col-sm-8">
                             <div class="shop-menu pull-right">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                    <li><a href="http://commerce.dev:10088/checkout"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="http://commerce.dev:10088/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="{{ route('account.orders') }}"><i class="fa fa-user"></i> Account</a></li>
+                                    <li><a href="{{ route('checkout.place') }}"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                                    <li><a href="{{ route('store.cart') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                     @if (Auth::guest())
                                         <li><a href="{{ url('/auth/login') }}"><i class="fa fa-lock"></i> Login</a></li>
                                         <li><a href="{{ url('/auth/register') }}"><i class="fa fa-key"></i> Register</a></li>
@@ -91,8 +91,8 @@
                                         <ul role="menu" class="sub-menu">
                                             <li><a href="#">Products</a></li>
                                             <li><a href="#">Product Details</a></li>
-                                            <li><a href="#">Checkout</a></li>
-                                            <li><a href="#">Cart</a></li>
+                                            <li><a href="{{ route('checkout.place') }}">Checkout</a></li>
+                                            <li><a href="{{ route('store.cart') }}">Cart</a></li>
                                             @if (Auth::guest())
                                                 <li><a href="{{ url('/auth/login') }}">Login</a></li>
                                                 <li><a href="{{ url('/auth/register') }}">Register</a></li>

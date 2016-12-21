@@ -51,4 +51,8 @@ class Cart extends Model
         return $this->items[$id]['qtd'];
     }
 
+    public function clear(){
+        $this->items = [];
+    }
+
 }
