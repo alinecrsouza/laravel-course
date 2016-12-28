@@ -36,6 +36,34 @@
 						</div>
 
 						<div class="form-group">
+							<label class="col-md-4 control-label">Street</label>
+							<div class="col-md-6">
+								<textarea name="street" rows="5" cols="30" value="{{ old('street') }}"></textarea>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">City</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="city" value="{{ old('city') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">State/Region</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="state_region" value="{{ old('state_region') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Zip Code</label>
+							<div class="col-md-6">
+								<input type="text" class="form-control" name="zip_code" value="{{ old('zip_code') }}">
+							</div>
+						</div>
+
+						<div class="form-group">
 							<label class="col-md-4 control-label">Password</label>
 							<div class="col-md-6">
 								<input type="password" class="form-control" name="password">

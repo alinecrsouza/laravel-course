@@ -1,6 +1,3 @@
-Checkout
-
-Agora que você já aprendeu a realizar o processo de checkout, realize as seguintes tarefas:
 
 - No momento do registro de um novo usuário, crie os campos adicionais para que seu endereço completo seja preenchido.
 

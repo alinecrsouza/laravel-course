@@ -20,14 +20,23 @@ class UserTableSeeder extends Seeder
             'email' => 'linecrsouza@gmail.com',
             'password' => Hash::make(123456),
             'is_admin' => true,
+            'street'=> 'Rua das Bromélias',
+            'city'=>'Macae',
+            'state_region'=>'RJ',
+            'zip_code'=>'24537-908'
+
         ]);
 
         factory('CodeCommerce\User')->create([
             'name' => 'Laura',
             'email' => 'laura@gmail.com',
             'password' => Hash::make(123456),
+            'street'=> 'Rua das Acácias',
+            'city'=>'Macae',
+            'state_region'=>'RJ',
+            'zip_code'=>'24537-908'
         ]);
         
-        factory('CodeCommerce\User', 10)->create();
+        //factory('CodeCommerce\User', 10)->create();
     }
 }
