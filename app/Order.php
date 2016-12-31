@@ -12,6 +12,21 @@ class Order extends Model
         'status'
     ];
 
+    protected $statuses = array(
+        '0' => 'Pending Payment',
+        '1' => 'Processing',
+        '2' => 'On Hold',
+        '3' => 'Completed',
+        '4' => 'Cancelled',
+        '5' => 'Refunded',
+        '6' => 'Failed',
+    );
+
+    public function getStatusAttribute($value)
+    {
+        return $this->statuses[$value];
+    }
+
     public function items(){
 
         return $this->hasMany('CodeCommerce\OrderItem');

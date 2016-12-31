@@ -40,10 +40,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function(
         Route::get('edit/{id}', ['as' => 'admin.categories.edit', 'uses' => 'CategoriesController@edit']);
         Route::put('update/{id}', ['as' => 'admin.categories.update', 'uses' => 'CategoriesController@update']);
         Route::get('destroy/{id}', ['as' => 'admin.categories.destroy', 'uses' => 'CategoriesController@destroy']);
-    });    
+    });
+    Route::group(['prefix' => 'orders'], function() {
+        Route::get('', ['as' => 'admin.orders.index', 'uses' => 'OrdersController@index']);
+        Route::put('update/{id}', ['as' => 'admin.orders.update', 'uses' => 'OrdersController@update']);
+
+    });
 });
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+/*Event::listen('illuminate.query',function($query){
+    var_dump($query);
+});*/
